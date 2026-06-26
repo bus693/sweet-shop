@@ -1,0 +1,18 @@
+{
+  "id": "Bus693SweetShop",
+  "name": "SweetShop",
+  "author": ["bus693"],
+  "description": "Labels for your near-vanilla mods",
+  "prefix": "bus693sweetshop",
+  "main_file": "main.lua",
+  "badge_colour": "FBB7C0",
+  "badge_text_colour": "6B2064",
+  "priority": 2,
+  "icon_path": "ice_cream_icon.png",
+  "version": "0.0.1",
+  "tags": ["vanilla_balance"],
+	"dependencies": [
+		"Steamodded (>=1.0.0~BETA-1814a)",
+		"Lovely (>=0.9.0)"
+	]
+}
