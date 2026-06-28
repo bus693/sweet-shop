@@ -19,7 +19,6 @@ target = "functions/UI_definitions.lua"
 pattern = "function create_UIBox_HUD()"
 position = "before"
 payload = '''
-
 -- Returns list of the metadata of each enabled and supported mod
 function __bus693sweetshop_get_supported_mods()
   supported_mods = {}
@@ -56,8 +55,15 @@ function __bus693sweetshop_create_UIBox_HUD_with_icon_row()
     return hud
   end
 
-  -- only show the first one! todo: support more than 1
+  -- only show the one with the lowest priority
+  -- todo: support more than 1
   local supported_mod = supported_mods[1]
+  for i, mod in pairs(supported_mods) do
+    if supported_mod.priority < mod.priority or
+        (supported_mod.priority == mod.priority and supported_mod.id < mod.id) then
+      supported_mod = mod
+    end
+  end
 
   local leaf_nodes = {{n=G.UIT.T, config={text = " "..supported_mod.name.." v"..supported_mod.version, scale = 0.85*0.4, colour = G.C.UI.TEXT_LIGHT, shadow = true}}}
   -- todo: support icons for other mods
