@@ -9,7 +9,7 @@
   "badge_text_colour": "6B2064",
   "priority": 2,
   "icon_path": "ice_cream_icon.png",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "tags": ["vanilla_balance"],
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-1814a)",
