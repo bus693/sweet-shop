@@ -1,0 +1,33 @@
+[manifest]
+version = "1.0.0"
+priority = 0
+
+[[patches]]
+[patches.module]
+source = "lovely/overlay.lua"
+before = "game.lua"
+name = "bus693sweetshop.overlay"
+
+# Insert module dependency at the top
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "Game = Object:extend()"
+position = "before"
+payload = '''
+local __bus693sweetshopoverlay = require('bus693sweetshop.overlay')
+'''
+match_indent = true
+times = 1
+
+# Initialize at the end of Game:start_up
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = "self.SPEEDFACTOR = 1"
+position = "before"
+payload = '''
+__bus693sweetshopoverlay.init()
+'''
+match_indent = true
+times = 1
