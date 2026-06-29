@@ -6,7 +6,7 @@ priority = 0
 [patches.module]
 source = "lovely/label.lua"
 before = "game.lua"
-name = "bus693sweetshop"
+name = "bus693sweetshop.label"
 
 # Insert module dependency at the top
 [[patches]]
@@ -15,7 +15,7 @@ target = "game.lua"
 pattern = "Game = Object:extend()"
 position = "before"
 payload = '''
-local __bus693sweetshop = require('bus693sweetshop')
+local __bus693sweetshoplabel = require('bus693sweetshop.label')
 '''
 match_indent = true
 times = 1
@@ -26,7 +26,7 @@ target = "game.lua"
 pattern = "definition = create_UIBox_HUD(),"
 position = "at"
 payload = '''
-definition = __bus693sweetshop.add_label(create_UIBox_HUD()),
+definition = __bus693sweetshoplabel.add_label(create_UIBox_HUD()),
 '''
 match_indent = true
 times = 1
