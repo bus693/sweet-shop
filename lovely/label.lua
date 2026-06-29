@@ -1,5 +1,5 @@
 m = {}
-local is_mod_supported, get_supported_mods
+local get_supported_mods, init, is_mod_supported
 
 -- Returns list of the metadata of each enabled and supported mod
 get_supported_mods = function()
@@ -12,6 +12,15 @@ get_supported_mods = function()
     end
   end
   return supported_mods
+end
+
+init = function()
+  SMODS.Atlas({
+    key = "scales_twotone",
+    path = "scales_twotone.png",
+    px = 32,
+    py = 32,
+  })
 end
 
 is_mod_supported = function(mod_props)
@@ -30,6 +39,7 @@ is_mod_supported = function(mod_props)
 end
 
 function m.add_label(hud)
+  init()
   local supported_mods = get_supported_mods()
 
   if (#supported_mods == 0) then
