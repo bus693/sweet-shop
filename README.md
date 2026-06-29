@@ -6,6 +6,10 @@ Labels for your near-vanilla mods.
 
 Vanilla rebalance mod screenshots look like regular games, but they play differently. This mod provides a subtle hint in the bottom left corner to people you share screenshots with.
 
+You can also show your mod list by pressing `F12`.
+
+<img src="assets/original/example_overlay.png" width="644">
+
 List of current mods that this mod can label:
 
 - [Rebalatro](https://github.com/lilaclila/Rebalatro)
