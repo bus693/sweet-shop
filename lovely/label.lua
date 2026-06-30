@@ -1,5 +1,5 @@
 m = {}
-local get_supported_mods, init, is_mod_supported
+local get_supported_mods, is_mod_supported
 
 -- Returns list of the metadata of each enabled and supported mod
 get_supported_mods = function()
@@ -12,15 +12,6 @@ get_supported_mods = function()
     end
   end
   return supported_mods
-end
-
-init = function()
-  SMODS.Atlas({
-    key = "scales_twotone",
-    path = "scales_twotone.png",
-    px = 32,
-    py = 32,
-  })
 end
 
 is_mod_supported = function(mod_props)
@@ -39,7 +30,6 @@ is_mod_supported = function(mod_props)
 end
 
 function m.add_label(hud)
-  init()
   local supported_mods = get_supported_mods()
 
   if (#supported_mods == 0) then
@@ -57,10 +47,6 @@ function m.add_label(hud)
   end
 
   local leaf_nodes = {{n=G.UIT.T, config={text = " "..supported_mod.name.." v"..supported_mod.version, scale = 0.85*0.4, colour = G.C.UI.TEXT_LIGHT, shadow = true}}}
-  -- todo: support icons for other mods
-  if supported_mod.id == "Rebalatro" then
-    table.insert(leaf_nodes, 1, {n=G.UIT.O, config={w = 0.4,h = 0.4,object = Sprite(0,0,0.5,0.5,G.ASSET_ATLAS["bus693sweetshop_scales_twotone"],{x=0, y=0}),hover = true,can_collide = false}})
-  end
 
   local newNodes = {
     {n=G.UIT.R, config={align = "cm",r=0.1, padding = 0.05, colour = G.C.DYN_UI.BOSS_MAIN, id = 'mod_icon_list'}, nodes={
