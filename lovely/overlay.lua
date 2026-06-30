@@ -1,10 +1,11 @@
 m = {}
-local create_overlay, get_enabled_mods, get_overlay_location, enabled_mods_lines, overlay_location
+local create_overlay, get_enabled_mods, get_overlay_location, enabled_mods_lines
 local is_overlay_on = false
 
-function create_overlay(mods, location)
+function create_overlay(mods)
   love.graphics.push()
   love.graphics.setColor(1, 1, 1, 1)
+  local location = get_overlay_location()
   love.graphics.print(enabled_mods_lines, location.x, location.y, 0, 0.75)
   love.graphics.pop()
 end
@@ -59,13 +60,12 @@ function m.init()
   end
 
   enabled_mods_lines = get_enabled_mods_lines(get_enabled_mods(SMODS.Mods)) 
-  overlay_location = get_overlay_location()
 
   local game_draw_ref = Game.draw
   function Game:draw()
     game_draw_ref(self)
     if is_overlay_on then
-      create_overlay(supported_mods_lines, overlay_location)
+      create_overlay(supported_mods_lines)
     end
   end  
 end
