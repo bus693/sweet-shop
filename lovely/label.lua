@@ -1,6 +1,12 @@
 m = {}
 local get_supported_mods, is_mod_supported
 
+-- List of mods that bus693 has tested
+local known_mods_by_id = {
+  ["Rebalatro"] = true,
+  ["extracredit"] = true,
+}
+
 -- Returns list of the metadata of each enabled and supported mod
 get_supported_mods = function()
   supported_mods = {}
@@ -15,7 +21,7 @@ get_supported_mods = function()
 end
 
 is_mod_supported = function(mod_props)
-  if mod_props.id == "Rebalatro" then
+  if known_mods_by_id[mod_props.id] then
     return true
   end
   if not mod_props.tags then

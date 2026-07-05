@@ -12,6 +12,7 @@ You can also show your mod list by pressing `F12`.
 
 List of current mods that this mod can label:
 
+- [ExtraCredit](https://github.com/GuilloryCraft/ExtraCredit/)
 - [Rebalatro](https://github.com/lilaclila/Rebalatro)
 
 **Mod authors**: If you would like to add your mod to the list, simply include the following line in your mod config `.json` file:
