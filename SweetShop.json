@@ -1,7 +1,7 @@
 {
   "id": "Bus693SweetShop",
   "name": "SweetShop",
-  "author": ["bus693 (dev)", "zebra (logo,art)"],
+  "author": ["bus693 (dev)", "zebragoboom (logo,art)"],
   "description": "Labels for your near-vanilla mods",
   "prefix": "bus693sweetshop",
   "main_file": "main.lua",
@@ -9,7 +9,7 @@
   "badge_text_colour": "6B2064",
   "priority": 2,
   "icon_path": "ice_cream_icon.png",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "tags": ["vanilla_balance"],
 	"dependencies": [
 		"Steamodded (>=1.0.0~BETA-1814a)",
