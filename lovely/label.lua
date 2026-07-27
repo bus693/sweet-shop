@@ -21,6 +21,9 @@ get_supported_mods = function()
 end
 
 is_mod_supported = function(mod_props)
+  if not (mod_props.id and mod_props.name and mod_props.priority and mod_props.version) then
+    return false
+  end
   if known_mods_by_id[mod_props.id] then
     return true
   end

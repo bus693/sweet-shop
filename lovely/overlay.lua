@@ -25,19 +25,19 @@ get_enabled_mods = function(smods_mods, top_keys)
       end
     end
   end
-  table.sort(mods.top, function(a, b) return a.id < b.id end)
-  table.sort(mods.other, function(a, b) return a.name < b.name end)
+  table.sort(mods.top, function(a, b) return (a.id or "") < (b.id or "") end)
+  table.sort(mods.other, function(a, b) return (a.name or a.id or "") < (b.name or b.id or "") end)
   return mods
 end
 
 get_enabled_mods_lines = function(enabled_mods)
   local eml = ""
   for i, mod in pairs(enabled_mods.top) do
-    eml = eml..string.format("%s v%s\n", mod.id, mod.version)
+    eml = eml..string.format("%s v%s\n", (mod.id or "unknown mod"), mod.version)
   end
   eml = eml.."\n"
   for i, mod in pairs(enabled_mods.other) do
-    eml = eml..string.format("%s v%s\n", mod.name, mod.version)
+    eml = eml..string.format("%s v%s\n", (mod.name or mod.id or "unknown injected mod"), mod.version)
   end
   eml = eml.."\nPress [F12] to hide\n"
   return eml
